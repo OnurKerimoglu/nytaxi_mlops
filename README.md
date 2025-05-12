@@ -1,2 +1,2 @@
 # nytaxi_mlops
-MLOps 
+MLOps sandbox for NYC Taxi dataset
