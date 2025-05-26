@@ -172,3 +172,13 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# MLFlow
+*/mlflow.db
+*/artifacts/*
+*/mlruns/*
+
+# Data
+*/data_raw/*
+*/data_preprocessed/*
+*/artifacts_preprocessor/*
