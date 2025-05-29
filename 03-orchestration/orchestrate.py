@@ -118,8 +118,8 @@ def main_flow(
     mlflow.set_experiment("nyc-taxi-experiment")
 
     # Load
-    df_train = read_data(train_path)
-    df_val = read_data(val_path)
+    df_train = read_data.submit(train_path)
+    df_val = read_data.submit(val_path)
 
     # Transform
     X_train, X_val, y_train, y_val, dv = add_features(df_train, df_val)
