@@ -52,7 +52,9 @@ def read_dataframe(color, year, month, read_local=False, categorical=['PULocatio
 
 def create_X(df, dv=None, categorical=['PULocationID', 'DOLocationID']):
     # categorical = ['PU_DO']
-    numerical = ['trip_distance']
+    # numerical = ['trip_distance']
+    numerical = []
+
     dicts = df[categorical + numerical].to_dict(orient='records')
 
     if dv is None:
@@ -156,5 +158,6 @@ if __name__ == "__main__":
         modeltype=args.modeltype,
         read_local=False)
 
-    with open("run_id.txt", "w") as f:
-        f.write(run_id)
+    # print(f'run_id: {run_id}')
+    # with open("run_id.txt", "w") as f:
+    #     f.write(run_id)
