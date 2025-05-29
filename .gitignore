@@ -182,6 +182,7 @@ cython_debug/
 */data_raw/*
 */data_preprocessed/*
 */artifacts_preprocessor/*
+*.b 
 
 # Material copied from other repos
 */prefect-mlops-zoomcamp/*
