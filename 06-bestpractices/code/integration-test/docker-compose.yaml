@@ -1,0 +1,15 @@
+services:
+  integ-test:
+    image: ${LOCAL_IMAGE_NAME}
+    ports:
+      - "8081:8080"
+    environment:
+      - PREDICTIONS_STREAM_NAME=ride_predictions
+      - RUN_ID=Test123
+      - TEST_RUN=True
+      - AWS_REGION=eu-central-1
+      - MODEL_LOCATION=/app/model
+    volumes:
+      - "/home/onur/.aws:/root/.aws"
+      - "${PWD}/model:/app/model"
+
