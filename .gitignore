@@ -175,14 +175,20 @@ cython_debug/
 
 # MLFlow
 */mlflow.db
+*/*/mlflow.db
 */artifacts/*
 */mlruns/*
+*/*/mlruns/*
 
 # Data
 */data_raw/*
 */data_preprocessed/*
 */artifacts_preprocessor/*
-*.b 
+*.b
+*.bin
+*.parquet
 
 # Material copied from other repos
 */prefect-mlops-zoomcamp/*
+
+*/*_original/*
