@@ -90,14 +90,23 @@ class KinesisCallback:
             PartitionKey=str(ride_id)
         )
         print(f'Kinesis {self.prediction_stream_name} put_record done')
-    
-    
+
+def create_kinesis_client(aws_region):
+    kinesis_endpoint_url = os.getenv('KINESIS_ENDPOINT_URL')
+    if kinesis_endpoint_url is None:
+        # get it from aws
+        kinesis_client = boto3.client('kinesis', region_name=aws_region)
+    else:
+        # if set, probably it's a localstack kinesis mock
+        kinesis_client = boto3.client('kinesis', endpoint_url=kinesis_endpoint_url)
+
+    return kinesis_client
 
 def init(prediction_stream_name:str, run_id:str, aws_region:str, test_run:bool):
     model = load_model(run_id)
     callbacks = []
     if not test_run:
-        kinesis_client = boto3.client('kinesis', region_name=aws_region)
+        kinesis_client = create_kinesis_client(aws_region)
         kinesis_callback = KinesisCallback(kinesis_client, prediction_stream_name)
         callbacks.append(kinesis_callback.put_record)
     model_service = ModelService(
