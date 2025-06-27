@@ -192,3 +192,7 @@ cython_debug/
 */prefect-mlops-zoomcamp/*
 
 */*_original/*
+
+
+# vscode files
+.vscode
